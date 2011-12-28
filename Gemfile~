@@ -1,6 +1,0 @@
-source 'http://rubygems.org'
-gem 'sinatra', '1.2.6'
-gem 'resque'
-gem "rake"
-gem "rack-test", "~> 0.5"
-
