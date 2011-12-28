@@ -1,0 +1,8 @@
+$LOAD_PATH.unshift ::File.expand_path(::File.dirname(__FILE__) + 'app')
+require 'resque/tasks'
+
+task "resque:setup" do
+  ENV['QUEUE'] = '*'
+end
+task "jobs:work" => "resque:work"
+
