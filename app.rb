@@ -1,9 +1,7 @@
 require 'rubygems'
 require 'sinatra'
 require 'resque'
-#require 'system_timer'
 
-Resque.redis = Redis.new(:host => 'localhost', :port => 9292, :thread_safe => true)
 
 class Eat
   @queue = :food
@@ -19,6 +17,6 @@ get '/' do
 end
 
 get '/eat/:food' do
-  Resque.enqueue(Apple, params['food'])
+  Resque.enqueue(Eat, params['food'])
   "Put #{params['food']} in fridge to eat later."
 end

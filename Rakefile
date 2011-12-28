@@ -1,5 +1,8 @@
-$LOAD_PATH.unshift ::File.expand_path(::File.dirname(__FILE__) + 'app')
+require './app'
 require 'resque/tasks'
 
-task "resque:setup" => :environments
+#set QUEUE env var, e.g. $ QUEUE=critical,high rake resque:work
+task "resque:setup" do
+      ENV['QUEUE'] = '*'
+end
 
